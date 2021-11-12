@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './header.css';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,7 +19,8 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Avatar from '@mui/material/Avatar';
 let appBarStyle = {backgroundColor:"white"};
 let searchIconStyle = {color:"black"};
-let searchInputStyle = {color:"black" };
+let searchInputStyle = {color:"black" , fontWeight:400};
+let notificationIcon = {color:"black"};
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -94,7 +96,7 @@ export default function PrimarySearchAppBar() {
               <SearchIcon  style={searchIconStyle}/>
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search"
               inputProps={{ 'aria-label': 'search' }}
               style={searchInputStyle}
             />
@@ -107,17 +109,18 @@ export default function PrimarySearchAppBar() {
             </IconButton>
             
             <IconButton
-              size="large"
+              size="small"
               aria-label="show 17 new notifications"
               color="inherit"
             >
              
-              <p>Hello, Rohit !</p>
+              <p id="welcome-title">Hello, Rohit !</p>
             </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              style={notificationIcon}
             >
               <Badge badgeContent={1} color="error">
                 <NotificationsIcon />

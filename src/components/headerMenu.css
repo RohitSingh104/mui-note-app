@@ -1,0 +1,91 @@
+
+.header-menu {
+    min-height:53px;
+    display: flex;
+    justify-content: space-between;
+    font-size:larger;
+    font-weight:400;
+    margin-left:240px;
+   
+   
+}
+
+.menu-list{
+    margin-left: 50px;
+    min-width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-note{
+    margin-left: 52%;
+    width:20%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+
+
+
+#add-logo{
+    width: 50px;
+    min-height: 50px;
+}
+
+.all-menu {
+    min-width: 80px;
+    min-height: 35px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.inactive{
+    background-color: white;
+}
+
+.active {
+    color:white;
+    background-color:#6c5ce7;
+    border-radius: 5px;
+}
+
+
+
+.createNote-tab{
+    margin:25% 25%;
+    width:200px;
+}
+
+.addNoteWrapper{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#date {
+    margin-left:14px;
+}
+#title1{
+    margin-top:20px;
+    min-height:30px;
+    margin-left:14px;
+}
+
+#desc1 {
+    margin-top:20px;
+    min-height:100px;
+    min-width:173px;
+    margin-left:14px;
+   
+}
+
+#submit-btn {
+    min-width:100px;
+    margin-left:50px;
+    margin-top:20px;
+}

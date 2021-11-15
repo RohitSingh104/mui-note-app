@@ -1,15 +1,20 @@
 .wrapper{
-    margin-top: 20px;
-    margin-left:250px;
+    margin-left:260px;
     min-width:1563;
 }
 .noteList{
+    margin-right:80px;
     min-width:1663;
-    margin-left:70px;
-    margin-right:100px;
-    margin-top:40px;
     display: flex;
     justify-content: flex-start;
     flex-wrap:wrap;
 }
 
+.card:hover{
+    transform: scale(1.1);
+
+}
+
+#title{
+    margin-left: 5px;
+}

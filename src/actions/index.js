@@ -11,12 +11,3 @@ export const addNote = (date,title,desc) =>{
     }
 }
 
-export const searchNote = (noteArray,itemToBe) => {
-    return {
-        type:"SEARCH_NOTE",
-        payload:{
-            noteArray:noteArray,
-            itemToBe:itemToBe
-        }
-    }
-}

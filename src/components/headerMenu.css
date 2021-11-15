@@ -1,6 +1,6 @@
 
 .header-menu {
-    min-height:53px;
+    min-height:40px;
     display: flex;
     justify-content: space-between;
     font-size:larger;
@@ -50,7 +50,7 @@
 
 .active {
     color:white;
-    background-color:#6c5ce7;
+    background-color:#877ff6;
     border-radius: 5px;
 }
 

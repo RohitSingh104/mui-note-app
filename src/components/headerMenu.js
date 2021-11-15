@@ -6,6 +6,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { addNote } from '../actions/index';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import TextField from '@mui/material/TextField';
+
+
+
+
+let addIconStyle = {color:"#6c5ce7",marginTop:8};
+let addButtonStyle = {color:"#6c5ce7" ,fontWeight:700 };
 const HeaderMenu = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [date , setDate] = useState('');
@@ -13,7 +21,7 @@ const HeaderMenu = () => {
     const [desc , setDesc] = useState('');
     const [toggleState , setToggleState] = useState(1);
    
-
+    
     let dispatch = useDispatch();
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -70,11 +78,11 @@ const HeaderMenu = () => {
             </div>
             <div className="add-note">
                 <div className="add-logo">
-                    <img id="add-logo" src="https://pngimage.net/wp-content/uploads/2018/05/add-logo-png-5.png" alt="" />
+                    <AddCircleOutlineIcon  style={addIconStyle}/>
                 </div>
                 <div className="add-notes">
-                    <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-                        Add a note
+                    <Button  onClick={handleClick} style={addButtonStyle}>
+                        Add new note
                     </Button>
                     <Popover
                         id={id}
@@ -89,17 +97,48 @@ const HeaderMenu = () => {
                         <Typography sx={{ p: 2 }}>
                             <div className="addNoteWrapper">    
                                 <div className="date">
-                                    <input type="date" id="date" onChange={handleChangeDate} value={date}/>
+
+                                     <TextField
+                                        id="date"
+                                        label="Date"
+                                        type="date"
+                                        onChange={handleChangeDate} value={date}
+                                        defaultValue="2017-05-24"
+                                        sx={{ width: 200 }}
+                                        InputLabelProps={{
+                                        shrink: true,
+                                        }}
+                                    />
                                 </div>   
                                <div className="title">
-                                    <input type="textarea" id="title1" placeholder="Title" onChange={handleChangeTitle} value={title}/>
+                                   
+                                    <TextField
+                                        id="outlined-multiline-flexible"
+                                        label="Title"
+                                        multiline
+                                        maxRows={2}
+                                        onChange={handleChangeTitle} value={title}
+                                        style={{marginTop:20}}
+                                    />
                                 </div>
                                 <div className="description">
-                                    <textarea id="desc1" placeholder="Description" onChange={handleChangeDesc} value={desc}> </textarea>
-                                    {/* <input type="textarea" id="desc1" placeholder="Description" onChange={handleChangeDesc} value={desc}/> */}
+                                    
+                                    <TextField
+                                        id="outlined-multiline-static"
+                                        label="Description"
+                                        multiline
+                                        rows={4}
+                                        defaultValue="Description"
+                                        onChange={handleChangeDesc} value={desc}
+                                        style={{marginTop:20}}
+                                    />
+                                    
                                 </div>
                                 <div className="submit-btn">
-                                    <input type="submit" id="submit-btn" onClick={()=>dispatch(addNote(date,title,desc),setDate(''),setTitle(''),setDesc(''))}/>
+                                    
+                                    <Button variant="outlined" id="submit-btn" onClick={()=>dispatch(addNote(date,title,desc),setDate(''),setTitle(''),setDesc(''))}>
+                                        Submit
+                                    </Button>
                                 </div>
                             </div>
                         </Typography>

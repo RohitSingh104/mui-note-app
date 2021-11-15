@@ -1,5 +1,5 @@
 .side-menu {
-    background-color: #6c5ce7;
+    background-color: #877ff6;
     color:white;
     height: 934px;
 }
@@ -12,10 +12,12 @@
 }
 
 .footer{
-    margin-top:180px;
+    margin-top:140px;
 
 }
 
 .copyright p{
-    margin-left:5px;
+    margin-left:20px;
+    font-size: small;
 }
+

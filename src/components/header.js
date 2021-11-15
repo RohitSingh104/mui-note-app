@@ -12,15 +12,16 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import Avatar from '@mui/material/Avatar';
+
+
 let appBarStyle = {backgroundColor:"white"};
 let searchIconStyle = {color:"black"};
 let searchInputStyle = {color:"black" , fontWeight:400};
-let notificationIcon = {color:"black"};
+let notificationIcon = {color:"black", marginLeft:30};
+let headerRight = {marginRight:65};
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -87,9 +88,13 @@ export default function PrimarySearchAppBar() {
 
  
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={appBarStyle}>
-        <Toolbar>
+    <Box sx={{ flexGrow: 1 , '& .css-hip9hq-MuiPaper-root-MuiAppBar-root':{
+       boxShadow:0,
+
+      }
+    }}>
+      <AppBar position="static" style={appBarStyle} sx={{p:1}}>
+        <Toolbar >
          
           <Search>
             <SearchIconWrapper>
@@ -105,7 +110,7 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               
-                <Avatar alt="" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="https://www.pinclipart.com/picdir/middle/95-958614_man-icon-person-logo-png-clipart.png" />
             </IconButton>
             
             <IconButton
@@ -122,7 +127,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
               style={notificationIcon}
             >
-              <Badge badgeContent={1} color="error">
+              <Badge badgeContent={1} color="error" style={headerRight}>
                 <NotificationsIcon />
               </Badge>
             </IconButton>

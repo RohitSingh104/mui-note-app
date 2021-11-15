@@ -24,13 +24,19 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import  PrimarySearchAppBar from "./header";
+import Skeleton from '@mui/material/Skeleton';
+import AddIcon from '@mui/icons-material/Add';
 import "./drawer.css";
 const drawerWidth = 240;
-let toolbarStyle = { backgroundColor: "#5f27cd" };
+let toolbarStyle = { backgroundColor: "#6c5ce7" };
 let listIconStyle = { color: "white" };
 let belowListIconStyle = {color:"blue" , fontSize:10};
-let listStyle = {marginTop:20};
-let dividerStyle = {marginTop:20};
+let listStyle = {marginTop:25,marginLeft:10};
+let dividerStyle = {marginTop:20 ,marginLeft:20, marginRight:20};
+let skeletonStyle = {marginLeft:15};
+let smallListStyle = {marginLeft:10 , };
+let belowSideMenu = {marginTop:5};
+let listItemStyle = {marginTop:10};
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -41,7 +47,15 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div className="side-menu">
-      <Toolbar style={toolbarStyle}></Toolbar>
+      <Toolbar style={toolbarStyle} sx={{p:3.135}}>
+        <span>
+          <Skeleton variant="circular" width={30} height={30} />
+        </span>
+        <span>
+          <Skeleton variant="text" height={16} width={100} style={skeletonStyle}/>
+        </span>
+        
+      </Toolbar>
       <Divider />
       <List style={listStyle}>
         {[
@@ -52,21 +66,20 @@ function ResponsiveDrawer(props) {
           { name: "Output", icon: <AssignmentTurnedInIcon /> },
           { name: "Support", icon: <SupportAgentIcon /> },
         ].map((text, index) => (
-          <ListItem button key={text} >
+          <ListItem button key={text} style={listItemStyle}>
             <ListItemIcon style={listIconStyle}>{text.icon}</ListItemIcon>
             <ListItemText primary={text.name} />
           </ListItem>
         ))}
       </List>
       <Divider style={dividerStyle}/>
-      <List style={listStyle}>
-        {["Projects", "Business", "Personal", "Add new"].map((text, index) => (
+      <List style={smallListStyle}>
+        {[{name:"Projects", icon:<FiberManualRecordIcon style={{width:10,color:"orange"}}/>}, {name:"Business",icon:<FiberManualRecordIcon style={{width:10,color:"yellow"}}/>}, {name:"Personal",icon:<FiberManualRecordIcon style={{width:10,color:"blue"}}/>}, {name:"Add new",icon:<AddIcon style={{width:15,color:"white"}}/>}].map((text, index) => (
           <ListItem button key={text} >
             <ListItemIcon>
-              {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-              {<FiberManualRecordIcon style={belowListIconStyle}/>}
+              {text.icon}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={text.name} style={belowSideMenu}/>
           </ListItem>
         ))}
       </List>
@@ -103,20 +116,7 @@ function ResponsiveDrawer(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        {/* <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            
-          </Typography>
-        </Toolbar> */}
+ 
         <PrimarySearchAppBar />
       </AppBar>
       <Box
@@ -124,7 +124,7 @@ function ResponsiveDrawer(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+    
         <Drawer
           container={container}
           variant="temporary"
@@ -172,12 +172,6 @@ function ResponsiveDrawer(props) {
   );
 }
 
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
+
 
 export default ResponsiveDrawer;
